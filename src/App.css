@@ -231,15 +231,18 @@
 
 @keyframes orbit-left {
   0% {
-    left: -1px;
+    left: 2px;
+  }
+  50% {
+    left: calc(100% - 2px);
   }
   100% {
-    left: calc(100% - 1px);
+    left: 2px;
   }
 }
 
 .left-corner-dot {
-  top: calc(100% - 1px);
+  top: calc(100% - 4px);
   animation: orbit-left 15s linear infinite;
 }
 
