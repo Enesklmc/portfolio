@@ -9,6 +9,7 @@ import {
   Github,
   FileUser,
 } from 'lucide-react';
+import ImageConfig from './showcase/imageConfig/ImageConfig';
 
 function App() {
   return (
@@ -69,11 +70,61 @@ function App() {
           </div>
         </div>
       </div>
+
       <div className='container'>
-        <div className='showCase'>
-          <div className='showCaseTitle'>Showcase Title</div>
+        <div className='promisesWrapper'>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+          <div className='promise'>asdas</div>
+
+          <div className='promise'>
+            a<div className='dot left-corner-dot'></div>
+          </div>
+          <div className='promise promiseResponsive'>
+            <span>R</span>
+            <span>E</span>
+            <span>S</span>
+            <span>P</span>
+            <span>O</span>
+            <span>N</span>
+            <span>S</span>
+            <span>I</span>
+            <span>V</span>
+            <span>E</span>
+          </div>
         </div>
       </div>
+
+      <div className='container' style={{ paddingTop: 0 }}>
+        <div className='showCaseWrapper'>
+          <div className='showCase'>
+            <div className='showCaseTitle'>E Commerce</div>
+
+            <ImageConfig />
+          </div>
+          <div className='showCase'>
+            <div className='showCaseTitle'>Pos</div>
+          </div>
+          <div className='showCase'>
+            <div className='showCaseTitle'>Tools</div>
+          </div>
+          <div className='showCase'>
+            <div className='showCaseTitle'>Showcase Title</div>
+          </div>
+        </div>
+      </div>
+
       <div className='buttomNavbar'>
         <div>
           <Github size={16} />

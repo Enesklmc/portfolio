@@ -1,0 +1,12 @@
+.imageConfigRoot {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+
+  height: 100%;
+}
+
+.imageConfigWall {
+  background-image: url('./room.jpg');
+  background-size: cover;
+  background-position: center;
+}
