@@ -1,7 +1,9 @@
-import classes from './config.module.scss';
-import React, { useRef, useEffect, useState, Fragment } from 'react';
-import * as fabric from 'fabric';
-import { useSelector } from 'react-redux';
+/* eslint-disable jsx-a11y/alt-text */
+import classes from "./config.module.scss";
+import React, { useRef, useEffect, useState, Fragment } from "react";
+import { fabric } from "fabric";
+import { useSelector } from "react-redux";
+import { selectFrame, selectLiner } from "../../../../redux/pdp/pdpSlice";
 
 const loadImage = (setImageDimensions, imageUrl) => {
   const img = new Image();
@@ -15,21 +17,16 @@ const loadImage = (setImageDimensions, imageUrl) => {
     });
   };
   img.onerror = (err) => {
-    console.log('img not found');
+    console.log("img not found");
     setImageDimensions({});
   };
 };
 
-interface ConfigProps {
-  productImageUrl: string;
-  toPX?: number;
-}
-
-const Config: React.FC<ConfigProps> = ({
-  productImageUrl,
-
-  toPX = 4.3,
-}) => {
+function Config({ productImageUrl, variant, toPX = 4.3 }) {
+  console.log("productImageUrl", productImageUrl);
+  if (!variant) {
+    return null;
+  }
   const [frameDimensions, setFrameDimensions] = useState({});
   const [linerDimensions, setLinerDimensions] = useState({});
 
@@ -77,7 +74,7 @@ const Config: React.FC<ConfigProps> = ({
   //References
   const mainImageRef = useRef();
   const canvasRef = useRef();
-  console.log('mainImageRef.current', mainImageRef.current);
+  console.log("mainImageRef.current", mainImageRef.current);
   //TO DO: include frame and liner too TO DO: toPX === 3.25 ?? make better
 
   let imgMarginBottom = toPX === 4.3 ? 181 : 0;
@@ -137,8 +134,8 @@ const Config: React.FC<ConfigProps> = ({
               { x: imgInstanceLiner.height, y: imgInstanceLiner.height },
             ],
             {
-              originX: 'center',
-              originY: 'center',
+              originX: "center",
+              originY: "center",
               left: 0,
               top: 0,
             }
@@ -153,8 +150,8 @@ const Config: React.FC<ConfigProps> = ({
               { x: imgInstanceLiner.height, y: 0 },
             ],
             {
-              originX: 'left',
-              originY: 'center',
+              originX: "left",
+              originY: "center",
               left: -imgInstanceLiner.width + imgInstanceLiner.width / 2,
               top: 0,
             }
@@ -171,8 +168,8 @@ const Config: React.FC<ConfigProps> = ({
                 actualLinerWidth * index -
                 (index === 0 ? frameHeight : 0),
               left: frameHeight + linerHeight / 2,
-              originX: 'center',
-              originY: 'center',
+              originX: "center",
+              originY: "center",
               clipPath: index === 0 && clipPolygonLiner,
               flipX: index % 2 === 1,
             })
@@ -199,8 +196,8 @@ const Config: React.FC<ConfigProps> = ({
             new fabric.Image(linerDimensions.img, {
               top: actualLinerWidth * index + (index === 0 ? frameHeight : 0),
               left: canvasWidth - frameHeight - linerHeight / 2,
-              originX: 'left',
-              originY: 'center',
+              originX: "left",
+              originY: "center",
               flipX: index % 2 === 1,
               clipPath: index === 0 && clipPolygonLiner,
               centeredRotation: false,
@@ -219,8 +216,8 @@ const Config: React.FC<ConfigProps> = ({
                 actualLinerWidth -
                 actualLinerWidth * index -
                 (index === 0 ? frameHeight : 0),
-              originX: 'left',
-              originY: 'center',
+              originX: "left",
+              originY: "center",
               clipPath: index === 0 && clipPolygonLiner,
               flipX: index % 2 === 1,
             })
@@ -234,8 +231,8 @@ const Config: React.FC<ConfigProps> = ({
           new fabric.Image(linerDimensions.img, {
             top: canvasHeight - actualLinerWidth / 2 - frameHeight - 1,
             left: 0 + linerHeight / 2 + frameHeight,
-            originX: 'center',
-            originY: 'center',
+            originX: "center",
+            originY: "center",
             clipPath: clipPolygonPatchLiner,
           })
             .scaleToHeight(linerHeight)
@@ -252,8 +249,8 @@ const Config: React.FC<ConfigProps> = ({
             { x: imgInstance.height, y: imgInstance.height },
           ],
           {
-            originX: 'center',
-            originY: 'center',
+            originX: "center",
+            originY: "center",
             left: 0,
             top: 0,
           }
@@ -268,8 +265,8 @@ const Config: React.FC<ConfigProps> = ({
             { x: imgInstance.height, y: 0 },
           ],
           {
-            originX: 'left',
-            originY: 'center',
+            originX: "left",
+            originY: "center",
             left: -imgInstance.width + imgInstance.width / 2,
             top: 0,
           }
@@ -282,8 +279,8 @@ const Config: React.FC<ConfigProps> = ({
           new fabric.Image(frameDimensions.img, {
             top: canvasHeight - actualFrameWidth / 2 - actualFrameWidth * index,
             left: 0 + frameHeight / 2,
-            originX: 'center',
-            originY: 'center',
+            originX: "center",
+            originY: "center",
             clipPath: index === 0 && clipPolygon,
             flipX: index % 2 === 1,
           })
@@ -309,8 +306,8 @@ const Config: React.FC<ConfigProps> = ({
         canvas.add(
           new fabric.Image(frameDimensions.img, {
             top: actualFrameWidth * index,
-            originX: 'left',
-            originY: 'center',
+            originX: "left",
+            originY: "center",
             left: imageWidth + frameHeight + linerHeight * 2 + frameHeight / 2,
             flipX: index % 2 === 1,
             clipPath: index === 0 && clipPolygon,
@@ -327,8 +324,8 @@ const Config: React.FC<ConfigProps> = ({
           new fabric.Image(frameDimensions.img, {
             top: imageHeight + frameHeight + frameHeight / 2 + linerHeight * 2,
             left: canvasWidth - actualFrameWidth - actualFrameWidth * index,
-            originX: 'left',
-            originY: 'center',
+            originX: "left",
+            originY: "center",
             clipPath: index === 0 && clipPolygon,
             flipX: index % 2 === 1,
           })
@@ -343,8 +340,8 @@ const Config: React.FC<ConfigProps> = ({
         new fabric.Image(frameDimensions.img, {
           top: canvasHeight - actualFrameWidth / 2 - 1,
           left: 0 + frameHeight / 2,
-          originX: 'center',
-          originY: 'center',
+          originX: "center",
+          originY: "center",
           clipPath: clipPolygonPatch,
         })
           .scaleToHeight(frameHeight)
@@ -369,31 +366,31 @@ const Config: React.FC<ConfigProps> = ({
     <Fragment>
       <div
         style={{
-          visibility: 'hidden',
-          position: 'absolute',
+          visibility: "hidden",
+          position: "absolute",
           zIndex: -99,
         }}
       >
         <img
-          id='cm-main-image'
+          id="cm-main-image"
           ref={mainImageRef}
           src={productImageUrl}
           //onLoad={() => imageOnLoad('mainImg')}
           width={imageWidth}
-          style={{ display: 'block' }}
+          style={{ display: "block" }}
           onLoad={() => setImageLoaded(imageLoaded + 1)}
         />
       </div>
 
       <canvas
-        id='cm-canvas'
+        id="cm-canvas"
         ref={canvasRef}
         className={classes.canvasImage}
         style={{ marginBottom: imgMarginBottom }}
       />
     </Fragment>
   );
-};
+}
 
 const MemoizedConfig = React.memo(Config);
 export default MemoizedConfig;

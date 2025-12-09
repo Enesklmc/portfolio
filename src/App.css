@@ -170,19 +170,31 @@
 }
 
 .buttomNavbar {
-  background-color: var(--primary-color-dark);
   bottom: 10px;
   right: 10px;
   position: fixed;
   margin: auto;
 
   display: flex;
-  gap: 8px;
 
   border-radius: 16px;
-  padding: 8px 16px;
+  overflow: hidden;
 
   box-shadow: 0 0 5px #000;
+}
+
+.buttomNavbar a {
+  color: inherit;
+  padding: 6px 14px;
+  display: flex;
+  background-color: var(--primary-color-dark);
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+}
+
+.buttomNavbar a:hover {
+  opacity: 0.8;
 }
 .container {
   padding: 16px;
@@ -287,6 +299,22 @@
   flex-wrap: wrap;
   animation: responsive-div 15s linear infinite;
 }
+
+.contactContainer {
+  padding-top: 32px;
+  padding-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  gap: 64px;
+}
+
+.contactContainer a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* 
 
 

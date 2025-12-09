@@ -1,0 +1,51 @@
+.promiseRoot {
+  background-color: var(--surface-color);
+  border-radius: 0px;
+  height: auto;
+  padding: 12px 14px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.promiseIcon {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.promiseRightContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.promiseTitle {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-strong);
+  letter-spacing: 0.2px;
+
+  position: relative;
+}
+
+.promiseTitle::after {
+  content: "";
+  display: none;
+  width: 28px;
+  height: 1px;
+  background-color: var(--text-muted);
+  margin-top: 4px;
+  border-radius: 2px;
+}
+
+.promiseContent {
+  margin-top: 0px;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--text-muted);
+}

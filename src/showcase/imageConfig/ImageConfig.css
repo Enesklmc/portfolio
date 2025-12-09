@@ -6,7 +6,17 @@
 }
 
 .imageConfigWall {
-  background-image: url('./room.jpg');
+  position: relative;
+  background-image: url("./room.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+.canvasImage {
+  margin: auto;
+
+  position: absolute;
+  top: 50px;
+  right: 50px;
 }

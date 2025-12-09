@@ -14,10 +14,13 @@
 
   --primary-color: #00695c;
   --primary-color-dark: #004d40;
-  --primary-color-light: #00897B;
+  --primary-color-light: #00897b;
   --surface-color: #1c1b1d;
 
+  --accent-color: #004d40;
+
   --text-muted: #64748b;
+  --text-strong: rgba(255, 255, 255, 0.87);
 }
 
 a {
