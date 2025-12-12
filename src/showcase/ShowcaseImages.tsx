@@ -13,12 +13,12 @@ export default function ShowcaseImages() {
     <>
       <div className="screenshotsGridBig">
         {imagesBig.map((img) => (
-          <img key={img} src={`/screenshots/${img}`} alt="" />
+          <img key={img} src={`screenshots/${img}`} alt="" />
         ))}
       </div>
       <div className="screenshotsGrid">
         {images.map((img) => (
-          <img key={img} src={`/screenshots/${img}`} alt="" />
+          <img key={img} src={`screenshots/${img}`} alt="" />
         ))}
       </div>
     </>
