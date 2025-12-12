@@ -15,7 +15,7 @@ const Promise = ({ title, icon: Icon, children }: Props) => {
     <div className="promiseRoot">
       {Icon && (
         <div className="promiseIcon">
-          <Icon size={16} />
+          <Icon size={20} />
         </div>
       )}
       <div className="promiseRightContainer">

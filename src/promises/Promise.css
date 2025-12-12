@@ -6,8 +6,10 @@
 
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   gap: 14px;
+
+  height: 80px;
 }
 
 .promiseIcon {
